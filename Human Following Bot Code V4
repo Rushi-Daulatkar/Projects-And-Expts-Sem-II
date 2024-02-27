@@ -1,0 +1,62 @@
+#include <AFMotor.h>
+
+// Motor Driver
+AF_DCMotor motor1(1);
+AF_DCMotor motor2(2);
+AF_DCMotor motor3(3);
+AF_DCMotor motor4(4);
+
+// Ultrasonic Sensor
+#define TRIG_PIN 9
+#define ECHO_PIN 10
+#define MAX_DISTANCE 200 // Maximum distance to detect (adjust as needed)
+
+void setup() {
+  Serial.begin(9600);
+
+  // Motor setup
+  motor1.setSpeed(255);
+  motor2.setSpeed(255);
+  motor3.setSpeed(255);
+  motor4.setSpeed(255);
+
+  // Ultrasonic sensor setup
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+}
+
+void moveForward() {
+  motor1.setSpeed(200);
+  motor2.setSpeed(200);
+  motor3.setSpeed(200);
+  motor4.setSpeed(200);
+}
+
+void stopMotors() {
+  motor1.setSpeed(0);
+  motor2.setSpeed(0);
+  motor3.setSpeed(0);
+  motor4.setSpeed(0);
+}
+
+void loop() {
+  long duration, distance;
+
+  // Trigger ultrasonic sensor
+  digitalWrite(TRIG_PIN, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
+  
+  // Read ultrasonic sensor
+  duration = pulseIn(ECHO_PIN, HIGH);
+  distance = (duration / 2) / 29.1;
+
+  // Check for obstacle
+  if (distance < 8) { // Adjust the distance threshold as needed
+    stopMotors();
+  } else {
+    moveForward();
+  }
+}
