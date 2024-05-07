@@ -1,9 +1,9 @@
 #include<stdio.h>
-
-void insertion(int *a,int n);
+#define MAX 10
+void insertion(int *a);
 void main(){
     
-    int a[10];
+    int a[MAX];
     int i;
 
     printf("\n Enter any 10 numbers \n");
@@ -18,7 +18,7 @@ void main(){
         printf(" %d",a[i]);
     }
     
-    insertion(a,10);
+    insertion(a);
     
     printf("\n Array after sorting\n");
     for(i=0;i<10;i++)
@@ -27,25 +27,25 @@ void main(){
     }
 }
 
-void insertion (int *p,int n){
+void insertion (int *a){
     
     int i,j,k,index,t;
-    for(i=1;i<n;i++)
+    for(i=0;i<MAX;i++)
     {
-        index=p[i];
+        index=a[i];
         j=i;
         
-        while((j>0) && (p[j-1]>index))
+        while((j>0) && (a[j-1]>index))
         {
-            t=p[j];
-            p[j]=p[j-1];
-            p[j-1]=t;
+            t=a[j];
+            a[j]=a[j-1];
+            a[j-1]=t;
             j--;
         }
         printf("\n");
-        for( k=0;k<n;k++)
+        for( k=0;k<MAX;k++)
         {
-            printf(" %d",p[k]);
+            printf(" %d",a[k]);
         }
         printf("\n");
     }
