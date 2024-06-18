@@ -13074,59 +13074,23 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sage.matrix.constructor</span> <span class="k">import</span> <span class="n">matrix</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="ADDITION-OF-MATRIX-OF-3X3-ORDER">ADDITION OF MATRIX OF 3X3 ORDER<a class="anchor-link" href="#ADDITION-OF-MATRIX-OF-3X3-ORDER">&#182;</a></h1>
+<p>Aim :- To solve the random variables using the Mannwhitneyu test.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matrix_A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;A = &quot;</span><span class="p">,</span><span class="n">matrix_A</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">mannwhitneyu</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|A|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrr}
-1 & 2 & 3 \\
-4 & 5 & 6 \\
-7 & 8 & 9
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13136,34 +13100,37 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matrix_B</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;B = &quot;</span><span class="p">,</span><span class="n">matrix_B</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">group_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">55</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">65</span><span class="p">]</span>
+<span class="n">group_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">23</span><span class="p">]</span>
+</pre></div>
 
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|B|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrr}
-7 & 6 & 5 \\
-1 & 2 & 3 \\
-9 & 8 & 3
-\end{array}\right)</script></html>
+    </div>
+</div>
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">statistic</span><span class="p">,</span><span class="n">p_value</span> <span class="o">=</span> <span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">group_1</span><span class="p">,</span><span class="n">group_2</span><span class="p">)</span>
+</pre></div>
 
+    </div>
 </div>
 </div>
 
@@ -13173,8 +13140,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Resultant_Matrix</span> <span class="o">=</span> <span class="n">matrix_A</span> <span class="o">+</span> <span class="n">matrix_B</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;Addition = &quot;</span><span class="p">,</span><span class="n">Resultant_Matrix</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The Test Statistic value of the mannwhitneyu test is :&quot;</span><span class="p">,</span><span class="n">statistic</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13190,15 +13156,88 @@ div#notebook {
     <div class="prompt"></div>
 
 
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|Addition|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrr}
-8 & 8 & 8 \\
-5 & 7 & 9 \\
-16 & 16 & 12
-\end{array}\right)</script></html>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The Test Statistic value of the mannwhitneyu test is : 13.5
+</pre>
+</div>
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The p-Value is :&quot;</span><span class="p">,</span><span class="n">p_value</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The p-Value is : 0.00040499273874343856
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.025</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">p_value</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reject the Null Hypothesis.There is significance diffrence between the groups.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Failed to Reject the Null Hypothesis.There is NO significance diffrence between the groups.&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Reject the Null Hypothesis.There is significance diffrence between the groups.
+</pre>
+</div>
 </div>
 
 </div>
@@ -13208,680 +13247,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="ADDITION-OF-MATRIX-OF-4X4-ORDER">ADDITION OF MATRIX OF 4X4 ORDER<a class="anchor-link" href="#ADDITION-OF-MATRIX-OF-4X4-ORDER">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matrix_A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;A = &quot;</span><span class="p">,</span><span class="n">matrix_A</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|A|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrrr}
-1 & 2 & 3 & 5 \\
-4 & 5 & 6 & 8 \\
-7 & 8 & 9 & 7 \\
-1 & 2 & 3 & 4
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matrix_B</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;B = &quot;</span><span class="p">,</span><span class="n">matrix_B</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|B|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrrr}
-7 & 6 & 5 & 4 \\
-1 & 2 & 3 & 2 \\
-9 & 8 & 3 & 3 \\
-7 & 5 & 3 & 1
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Resultant_MatriIx</span> <span class="o">=</span> <span class="n">matrix_A</span> <span class="o">+</span> <span class="n">matrix_B</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;Addition = &quot;</span><span class="p">,</span><span class="n">Resultant_MatriIx</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|Addition|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrrr}
-8 & 8 & 8 & 9 \\
-5 & 7 & 9 & 10 \\
-16 & 16 & 12 & 10 \\
-8 & 7 & 6 & 5
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="SUBSTRACTION-OF-MATRIX-OF-3X3-ORDER">SUBSTRACTION OF MATRIX OF 3X3 ORDER<a class="anchor-link" href="#SUBSTRACTION-OF-MATRIX-OF-3X3-ORDER">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matrix_A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;A = &quot;</span><span class="p">,</span><span class="n">matrix_A</span><span class="p">)</span>
-<span class="n">matrix_B</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;B = &quot;</span><span class="p">,</span><span class="n">matrix_B</span><span class="p">)</span>
-<span class="n">Resultant_Matix</span> <span class="o">=</span> <span class="n">matrix_A</span> <span class="o">+</span> <span class="n">matrix_B</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;Substraction = &quot;</span><span class="p">,</span><span class="n">Resultant_Matix</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|A|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrr}
-1 & 2 & 3 \\
-4 & 5 & 6 \\
-7 & 8 & 9
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|B|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrr}
-7 & 6 & 5 \\
-1 & 2 & 3 \\
-9 & 8 & 3
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|Substraction|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrr}
-8 & 8 & 8 \\
-5 & 7 & 9 \\
-16 & 16 & 12
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="SUBSTRACTION-OF-MATRIX-OF-4X4-ORDER">SUBSTRACTION OF MATRIX OF 4X4 ORDER<a class="anchor-link" href="#SUBSTRACTION-OF-MATRIX-OF-4X4-ORDER">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matrix_A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;A = &quot;</span><span class="p">,</span><span class="n">matrix_A</span><span class="p">)</span>
-<span class="n">matrix_B</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;B = &quot;</span><span class="p">,</span><span class="n">matrix_B</span><span class="p">)</span>
-<span class="n">resultant_Matix</span> <span class="o">=</span> <span class="n">matrix_A</span> <span class="o">+</span> <span class="n">matrix_B</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;Substraction = &quot;</span><span class="p">,</span><span class="n">resultant_Matix</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|A|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrrr}
-1 & 2 & 3 & 1 \\
-4 & 5 & 6 & 2 \\
-7 & 8 & 9 & 8 \\
-1 & 4 & 7 & 8
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|B|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrrr}
-7 & 6 & 5 & 1 \\
-1 & 2 & 3 & 0 \\
-9 & 8 & 3 & 3 \\
-9 & 6 & 3 & 2
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|Substraction|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrrr}
-8 & 8 & 8 & 2 \\
-5 & 7 & 9 & 2 \\
-16 & 16 & 12 & 11 \\
-10 & 10 & 10 & 10
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="DETERMINANT-OF-MATRIX-OF-3X3-ORDER">DETERMINANT OF MATRIX OF 3X3 ORDER<a class="anchor-link" href="#DETERMINANT-OF-MATRIX-OF-3X3-ORDER">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matrix_A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;A = &quot;</span><span class="p">,</span><span class="n">matrix_A</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|A|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrr}
-1 & 2 & 3 \\
-4 & 5 & 6 \\
-7 & 8 & 9
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">det_A</span> <span class="o">=</span> <span class="n">matrix_A</span><span class="o">.</span><span class="n">det</span><span class="p">()</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;Determinant = &quot;</span><span class="p">,</span><span class="n">det_A</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|Determinant|\phantom{\verb!x!}\verb|=| 0</script></html>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="DETERMINANT-OF-MATRIX-OF-4X4-ORDER">DETERMINANT OF MATRIX OF 4X4 ORDER<a class="anchor-link" href="#DETERMINANT-OF-MATRIX-OF-4X4-ORDER">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matrix_B</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">9</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;B = &quot;</span><span class="p">,</span><span class="n">matrix_B</span><span class="p">)</span>
-<span class="n">det_B</span> <span class="o">=</span> <span class="n">matrix_B</span><span class="o">.</span><span class="n">det</span><span class="p">()</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;Determinant = &quot;</span><span class="p">,</span><span class="n">det_B</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|B|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrrr}
-7 & 6 & 5 & 1 \\
-1 & 2 & 3 & 0 \\
-9 & 8 & 3 & 3 \\
-9 & 6 & 3 & 2
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|Determinant|\phantom{\verb!x!}\verb|=| -16</script></html>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="ADJOINT-OF-MATRIX-OF-3X3-ORDER">ADJOINT OF MATRIX OF 3X3 ORDER<a class="anchor-link" href="#ADJOINT-OF-MATRIX-OF-3X3-ORDER">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matrix_M</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;M = &quot;</span><span class="p">,</span><span class="n">matrix_M</span><span class="p">)</span>
-<span class="n">adj_M</span> <span class="o">=</span> <span class="n">matrix_M</span><span class="o">.</span><span class="n">adjugate</span><span class="p">()</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;Adjoint = &quot;</span><span class="p">,</span><span class="n">adj_M</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|M|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrr}
-1 & 2 & 3 \\
-4 & 5 & 6 \\
-7 & 8 & 9
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|Adjoint|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrr}
--3 & 6 & -3 \\
-6 & -12 & 6 \\
--3 & 6 & -3
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="ADJOINT-OF-MATRIX-OF-4X4-ORDER">ADJOINT OF MATRIX OF 4X4 ORDER<a class="anchor-link" href="#ADJOINT-OF-MATRIX-OF-4X4-ORDER">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matrix_N</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">],[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;N = &quot;</span><span class="p">,</span><span class="n">matrix_N</span><span class="p">)</span>
-<span class="n">adj_N</span> <span class="o">=</span> <span class="n">matrix_N</span><span class="o">.</span><span class="n">adjugate</span><span class="p">()</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;Adjoint = &quot;</span><span class="p">,</span><span class="n">adj_N</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|N|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrrr}
-1 & 2 & 3 & 1 \\
-4 & 5 & 6 & 4 \\
-7 & 8 & 9 & 7 \\
-10 & 11 & 12 & 8
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|Adjoint|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrrr}
-6 & -12 & 6 & 0 \\
--12 & 24 & -12 & 0 \\
-6 & -12 & 6 & 0 \\
-0 & 0 & 0 & 0
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="INVERSE-OF-MATRIX-OF-3X3-ORDER">INVERSE OF MATRIX OF 3X3 ORDER<a class="anchor-link" href="#INVERSE-OF-MATRIX-OF-3X3-ORDER">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matrix_H</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;H = &quot;</span><span class="p">,</span><span class="n">matrix_H</span><span class="p">)</span>
-<span class="n">invers_H</span> <span class="o">=</span> <span class="n">matrix_H</span><span class="o">.</span><span class="n">inverse</span><span class="p">()</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;Inverse = &quot;</span><span class="p">,</span><span class="n">invers_H</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|H|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrr}
-1 & 2 & 1 \\
-4 & 5 & 6 \\
-7 & 8 & 9
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|Inverse|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrr}
--\frac{1}{2} & -\frac{5}{3} & \frac{7}{6} \\
-1 & \frac{1}{3} & -\frac{1}{3} \\
--\frac{1}{2} & 1 & -\frac{1}{2}
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="INVERSE-OF-MATRIX-OF-4X4-ORDER">INVERSE OF MATRIX OF 4X4 ORDER<a class="anchor-link" href="#INVERSE-OF-MATRIX-OF-4X4-ORDER">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">matrix_H</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;H = &quot;</span><span class="p">,</span><span class="n">matrix_H</span><span class="p">)</span>
-<span class="n">invers_H</span> <span class="o">=</span> <span class="n">matrix_H</span><span class="o">.</span><span class="n">inverse</span><span class="p">()</span>
-<span class="n">show</span><span class="p">(</span><span class="s2">&quot;Inverse = &quot;</span><span class="p">,</span><span class="n">invers_H</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|H|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrrr}
-1 & 2 & 1 & 2 \\
-4 & 5 & 6 & 5 \\
-7 & 8 & 9 & 3 \\
-1 & 4 & 5 & 6
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-<div class="output_html rendered_html output_subarea ">
-<html><script type="math/tex; mode=display">\newcommand{\Bold}[1]{\mathbf{#1}}\verb|Inverse|\phantom{\verb!x!}\verb|=| \left(\begin{array}{rrrr}
-\frac{1}{68} & \frac{25}{34} & -\frac{7}{34} & -\frac{35}{68} \\
-\frac{13}{17} & -\frac{13}{17} & \frac{5}{17} & \frac{4}{17} \\
--\frac{49}{68} & -\frac{1}{34} & \frac{3}{34} & \frac{15}{68} \\
-\frac{3}{34} & \frac{7}{17} & -\frac{4}{17} & -\frac{3}{34}
-\end{array}\right)</script></html>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Conclusion :- Hence all the operations are performed on the materices of order 3x3 and 4x4.</p>
-
+<h1 id="Conclusion-:-Hence-the-Study-of-the-mannwhitneyu-test-is-performed-successfully.">Conclusion :-Hence the Study of the mannwhitneyu test is performed successfully.<a class="anchor-link" href="#Conclusion-:-Hence-the-Study-of-the-mannwhitneyu-test-is-performed-successfully.">&#182;</a></h1>
 </div>
 </div>
 </div>
